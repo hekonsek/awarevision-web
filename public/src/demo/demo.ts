@@ -27,8 +27,19 @@ module app.demo {
     export interface IDemoService {
         getExcited: boolean;
     }
+
     export class DemoService implements IDemoService {
+
+        http: ng.IHttpService;
+
+        constructor(
+            $http: ng.IHttpService
+        ){
+            this.http = $http;
+        }
+
         getExcited: boolean = false;
+
     }
 
     angular
@@ -41,5 +52,5 @@ module app.demo {
             };
         })
         .controller("demoCtrl", DemoCtrl)
-        .factory("demoService", [() => new app.demo.DemoService()]);
+        .factory("demoService", DemoService);
 }
