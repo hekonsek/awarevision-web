@@ -2,9 +2,9 @@
   "name": "myapp",
   "version": "0.0.0",
   "dependencies": {
-	
-	"bootstrap": "3.3.6",
-	"angular": "1.5.3"
+    "bootstrap": "3.3.6",
+    "angular": "1.5.3",
+    "keycloak": "1.9.1"
   },
   "overrides": {
     "bootstrap": {
@@ -14,16 +14,16 @@
         "dist/js/bootstrap.js"
       ]
     },
-	"foundation": {
-	  "main": [
-		"css/foundation.css",
-		"js/foundation.js"
-	  ]
-	},
-	"font-awesome": {
-		"main": [
-		  "css/font-awesome.css"
-		]
-	}
+    "foundation": {
+      "main": [
+        "css/foundation.css",
+        "js/foundation.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    }
   }
 }

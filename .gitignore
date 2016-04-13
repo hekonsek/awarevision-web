@@ -5,3 +5,4 @@
 # Build
 node_modules/
 public/lib/
+typings/
