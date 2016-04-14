@@ -3,6 +3,7 @@
 *.iml
 
 # Build
+dist/
 node_modules/
 public/lib/
 typings/

@@ -4,22 +4,35 @@ module app.demo {
 
     'use strict';
 
+    declare var keycloak: any;
+
     export interface IDemoCtrl {}
     export class DemoCtrl implements IDemoCtrl {
 
         scope: any;
+        location: ng.ILocationService;
         http: ng.IHttpService;
+        timeout: ng.ITimeoutService;
 
         constructor(
             $scope: ng.IScope,
-            $http: ng.IHttpService
+            $location: ng.ILocationService,
+            $http: ng.IHttpService,
+            $timeout: ng.ITimeoutService
         ){
             this.scope = $scope;
+            this.location = $location;
             this.http = $http;
+            this.timeout = $timeout;
 
-            this.scope.hello = function () {
-                $scope['foo'] = 'bar';
-            }
+            $timeout(function(){
+                $http.defaults.headers.common['Authorization'] = 'bearer ' + keycloak.token;
+                $http.get('http://' + $location.host() + ':8080/document/count/foo').success(function (data : any) {
+                    $scope['count'] = data.payload;
+                }).error(function () {
+                    console.error('Error loading document count.')
+                });
+            }, 1000);
         }
 
     }
