@@ -129,6 +129,8 @@ gulp.task('serve', ['scripts', 'cssNano', 'inject'], function(){
 // Default Task
 gulp.task('default', ['lint', 'scripts', 'sass', 'concatCss', 'cssNano', 'inject', 'serve']);
 
+gulp.task('build', ['lint', 'scripts', 'sass', 'concatCss', 'cssNano', 'inject']);
+
 function prepareTemplates() {
 
 	// we get a conflict with the < % = var % > syntax for $templateCache
