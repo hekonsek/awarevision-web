@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION=1.0.0-SNAPSHOT
-DOCKER_COORDINATES=hekonsek/awarevision-web
+DOCKER_COORDINATES=hekonsek/thingsservice-web
 
 # Build the project
 gulp build

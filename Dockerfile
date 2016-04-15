@@ -7,7 +7,7 @@ RUN apt-get install npm -qq
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN npm install http-server -g
 
-COPY . /awarecloud-web
-WORKDIR /awarecloud-web
+COPY . /thingsservice-web
+WORKDIR /thingsservice-web
 
-ENTRYPOINT ["/awarecloud-web/env-redirect.sh"]
+ENTRYPOINT ["/thingsservice-web/env-redirect.sh"]
