@@ -1,0 +1,13 @@
+<div ng-co id="camera-css-inject">
+
+	<button ng-click="cameraCtrlVM.cameraService.getExcited = !cameraCtrlVM.cameraService.getExcited">
+		Go ahead, click me - I'm wired up to ng ready to go!
+	</button>
+	<div>
+		Count: {{count}}
+	</div>
+	<div ng-show="cameraCtrlVM.cameraService.getExcited">
+		<h3>Yeeehaww!</h3>
+	</div>
+
+</div>

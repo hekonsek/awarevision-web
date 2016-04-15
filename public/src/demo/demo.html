@@ -1,28 +1,4 @@
-<script src="../../lib/keycloak/dist/keycloak.js"></script>
-<script>
-	var keycloak = Keycloak({
-		url: 'http://' + location.hostname + ':8082/auth',
-		realm: 'demo',
-		clientId: 'demo-app'
-	});
-	keycloak.init({ onLoad: 'login-required' }).success(function () {
-		keycloak.loadUserProfile().success(function () {
-			document.getElementById('user').textContent= keycloak.profile.username;
-		}).error(function () {
-			console.log('Error occurred when authenticating.');
-		});
-	}).error(function () {
-		console.log('Error occurred when authenticating.');
-	});
-</script>
-
-<div>
-	You are logged as: <div id="user"></div>
-</div>
-
 <div ng-co id="demo-css-inject">
-
-	<h2>Hello directive!</h2>
 
 	<button ng-click="demoCtrlVM.demoService.getExcited = !demoCtrlVM.demoService.getExcited">
 		Go ahead, click me - I'm wired up to ng ready to go!

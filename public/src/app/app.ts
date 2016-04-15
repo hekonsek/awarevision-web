@@ -2,6 +2,7 @@
 
 angular.module('myappApp', [
     'app.demo',
+    'app.camera',
     'app.templates'
 ]);
 
