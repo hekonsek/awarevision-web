@@ -61,11 +61,11 @@
 		</div>
 	</div>
 
-	<div class="panel panel-default">
-		<div class="panel-heading">Home Camera</div>
+	<div class="panel panel-default" ng-controller="appCtrl">
+		<div class="panel-heading"><button ng-click="home()">Home</button> <button  ng-click="camera()">Camera</button></div>
 		<div class="panel-body">
-			<demo></demo>
-			<camera></camera>
+				<demo ng-show="tab === 'home'"></demo>
+				<camera ng-show="tab === 'camera'"></camera>
 		</div>
 		<div class="panel-footer"><div>
 			You are logged as: <span id="user"></span>
