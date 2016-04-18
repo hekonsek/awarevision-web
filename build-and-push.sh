@@ -8,6 +8,13 @@ gulp build
 
 # Deploy Dockerized application
 docker build -t ${DOCKER_COORDINATES}:${VERSION} .
+
+
 docker tag -f ${DOCKER_COORDINATES}:${VERSION} ${DOCKER_COORDINATES}:latest
+TIMESTAMP=$(date +%Y-%m-%d)
+docker tag -f ${DOCKER_COORDINATES}:${VERSION} ${DOCKER_COORDINATES}:${TIMESTAMP}
+
+
 docker push ${DOCKER_COORDINATES}:${VERSION}
 docker push ${DOCKER_COORDINATES}:latest
+docker push ${DOCKER_COORDINATES}:${TIMESTAMP}
