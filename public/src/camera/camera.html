@@ -1,13 +1,9 @@
 <div ng-co id="camera-css-inject">
 
-	<button ng-click="cameraCtrlVM.cameraService.getExcited = !cameraCtrlVM.cameraService.getExcited">
-		Go ahead, click me - I'm wired up to ng ready to go!
-	</button>
-	<div>
-		Count: {{count}}
-	</div>
-	<div ng-show="cameraCtrlVM.cameraService.getExcited">
-		<h3>Yeeehaww!</h3>
+	<h2>Cameras</h2>
+
+	<div ng-repeat="camera in cameras">
+		<span class="glyphicon glyphicon-facetime-video"></span> {{camera.deviceId}}
 	</div>
 
 </div>

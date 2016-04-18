@@ -27,31 +27,31 @@ module app.camera {
 
             $timeout(function(){
                 $http.defaults.headers.common['Authorization'] = 'bearer ' + keycloak.token;
-                $http.get('http://' + $location.host() + ':8080/document/count/foo').success(function (data : any) {
-                    $scope['count'] = data.payload;
-                }).error(function () {
-                    console.error('Error loading document count.')
+
+                $http.get('http://' + $location.host() + ':8080/device/list').success(function (data : any) {
+                    $scope['cameras'] = data.payload;
+                    // $scope['currentImage'] = {};
+                    // $scope['currentPlate'] = {};
+                    // for (var i = 0; i < $scope.cameras.length; i++) {
+                    //     var deviceId = $scope.cameras[i].deviceId;
+                    //     $http.post(restApi('document/findByQuery/CameraImage'), {
+                    //         payload: {
+                    //             query: {deviceId: deviceId},
+                    //             size: 1,
+                    //             sortAscending: false
+                    //         }
+                    //     }).success(function (data, status, headers, config) {
+                    //         $scope.currentImage[data.payload[0].deviceId] = restApi('binary/read/' + data.payload[0].id);
+                    //         $scope.currentPlate[data.payload[0].deviceId] = data.payload[0].plateMatches[0].plateNumber;
+                    //     }).error(function (data, status, headers, config) {
+                    //         log.debug('Error loading camera image data.');
+                    //     });
+                    // }
+                }).error(function (data, status, headers, config) {
+                    console.error('Error loading cameras data.');
                 });
             }, 1000);
         }
-
-    }
-
-    export interface IcameraService {
-        getExcited: boolean;
-    }
-
-    export class cameraService implements IcameraService {
-
-        http: ng.IHttpService;
-
-        constructor(
-            $http: ng.IHttpService
-        ){
-            this.http = $http;
-        }
-
-        getExcited: boolean = false;
 
     }
 
@@ -64,6 +64,6 @@ module app.camera {
                 controllerAs: 'cameraCtrlVM'
             };
         })
-        .controller("cameraCtrl", cameraCtrl)
-        .factory("cameraService", cameraService);
+        .controller("cameraCtrl", cameraCtrl);
+
 }
