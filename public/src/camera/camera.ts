@@ -44,7 +44,11 @@ module app.camera {
                             }
                         }).success(function (data, status, headers, config) {
                             $scope['currentImage'][data['payload'][0].deviceId] = 'http://' + $location.host() + ':8080/binary/read/' + data['payload'][0].id;
-                            $scope['currentPlate'][data['payload'][0].deviceId] = data['payload'][0].plateMatches[0].plateNumber;
+                            if(data['payload'][0]['plateMatches'].length > 0) {
+                                $scope['currentPlate'][data['payload'][0].deviceId] = data['payload'][0].plateMatches[0]['plateNumber'];
+                            } else {
+                                $scope['currentPlate'][data['payload'][0].deviceId] = 'No plate detected.';
+                            }
                         }).error(function (data, status, headers, config) {
                             console.error('Error loading camera image data.');
                         });
