@@ -1,9 +1,26 @@
 <div ng-co id="camera-css-inject">
 
-	<h2>Cameras</h2>
+    <h2>Cameras</h2>
 
-	<div ng-repeat="camera in cameras">
-		<span class="glyphicon glyphicon-facetime-video"></span> {{camera.deviceId}}
-	</div>
+    <table class="table">
+        <tr ng-repeat="camera in cameras">
+            <td>
+                <div>
+                    <i class="fa fa-camera" aria-hidden="true"></i> <b>Camera</b>
+                </div>
+                <div>{{camera.deviceId}}</div>
+
+                <br/>
+
+                <div>
+                    <i class="fa fa-car" aria-hidden="true"></i> <b>Vehicle plate detected</b>
+                </div>
+                <div>{{currentPlate[camera.deviceId]}}</div>
+            </td>
+            <td>
+                <img ng-src="{{currentImage[camera.deviceId]}}" width="320" height="240"/>
+            </td>
+        </tr>
+    </table>
 
 </div>
